@@ -1,0 +1,36 @@
+[project]
+name = "okta-mcp-server"
+version = "0.1.0"
+description = "Model Context Protocol (MCP) server for Okta administration and identity management"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    { name = "Chris Senguttuvan" }
+]
+keywords = ["okta", "mcp", "model-context-protocol", "ai-agents", "claude", "cursor"]
+dependencies = [
+    "fastmcp>=3.4.11",
+    "mcp>=1.30.0,<2",
+    "requests>=2.34.2",
+    "loguru>=0.7.0",
+    "pyjwt>=2.15.1",
+    "cryptography>=50.0.2",
+    "uvicorn>=0.54.0",
+    "starlette>=1.7.0",
+    "python-dotenv>=1.0.1",
+]
+
+[project.scripts]
+okta-mcp-server = "okta_mcp_server.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "ruff>=0.17.2",
+]

@@ -1,0 +1,45 @@
+exclude = [
+    ".git",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+    "__pypackages__",
+    "build",
+    "dist",
+]
+
+line-length = 119
+indent-width = 4
+
+[lint]
+preview = true
+select = [
+    "F",      # Pyflakes
+    "E",      # pycodestyle
+    "I",      # isort
+    "RUF",    # Ruff-specific rules
+]
+
+fixable = ["ALL"]
+unfixable = []
+
+[lint.per-file-ignores]
+"**/__init__.py" = ["line-too-long", "undefined-local-with-import-star", "unused-import"]
+"src/okta_mcp_server/utils/pagination.py" = ["line-too-long"]
+"src/okta_mcp_server/server.py" = [
+    "module-import-not-at-top-of-file",
+    "unused-async",
+    "unused-import",
+    "unsorted-imports",
+]
+"src/okta_mcp_server/tool_loader.py" = [
+    "unsorted-imports",
+    "unused-import",
+]
+
+[format]
+line-ending = "auto"
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+docstring-code-format = true
